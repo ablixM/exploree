@@ -6,6 +6,8 @@ import SearchPage from "./pages/SearchPage.tsx";
 import ApplicationPage from "./pages/ApplicationPage.tsx";
 import SavedPage from "./pages/SavedPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
+import LogInPage from "./pages/LogInPage.tsx";
+import SignUpPage from "./pages/SignUpPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/Home",
+        index: true,
         element: <HomePage />,
       },
       {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "/Login",
+        element: <LogInPage />,
+      },
+      {
+        path: "/SignUp",
+        element: <SignUpPage />,
       },
     ],
   },

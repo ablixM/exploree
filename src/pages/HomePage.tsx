@@ -1,10 +1,15 @@
-import { Heading } from "@chakra-ui/react";
+import HeroLogin from "../components/HeroLogin.tsx";
+import HeroMain from "../components/HeroMain.tsx";
+import ListGrid from "../components/ListGrid.tsx";
+import { Box } from "@chakra-ui/react";
 
 const HomePage = () => {
   return (
-    <>
-      <Heading color={"black"}>HOME</Heading>
-    </>
+    <Box>
+      <HeroLogin />
+      <HeroMain />
+      <ListGrid />
+    </Box>
   );
 };
 

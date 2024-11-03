@@ -19,31 +19,25 @@ const BottomNavBtn = ({
 }: NavItemProps) => {
   return (
     <>
-      <>
-        <Flex
-          flexDirection={"column"}
-          justifyContent={"center"}
-          alignItems={"center"}
+      <Flex flexDirection={"column"} align={"center"} justify={"center"}>
+        <Link to={label}>
+          <IconButton
+            aria-label={label}
+            icon={isActive ? <FilledIcon /> : <Icon />}
+            fontSize={"20px"}
+            fontWeight={isActive ? "extrabold" : "light"}
+            color={isActive ? "blue.600" : "white"}
+            onClick={onClick}
+          />
+        </Link>
+        <Text
+          fontSize={"sm"}
+          fontWeight={isActive ? "normal" : "light"}
+          color={isActive ? "blue.500" : "white"}
         >
-          <Link to={label}>
-            <IconButton
-              aria-label={label}
-              icon={isActive ? <FilledIcon /> : <Icon />}
-              fontSize={"20px"}
-              fontWeight={isActive ? "extrabold" : "light"}
-              color={isActive ? "blue.600" : "white"}
-              onClick={onClick}
-            />
-            <Text
-              fontSize={"sm"}
-              fontWeight={isActive ? "normal" : "light"}
-              color={isActive ? "blue.500" : "white"}
-            >
-              {label}
-            </Text>
-          </Link>
-        </Flex>
-      </>
+          {label}
+        </Text>
+      </Flex>
     </>
   );
 };

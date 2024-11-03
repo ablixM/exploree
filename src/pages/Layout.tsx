@@ -1,24 +1,23 @@
 import { Outlet } from "react-router-dom";
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import NavBar from "../components/NavBar.tsx";
 import BottomNav from "../components/BottomNav.tsx";
 
 const Layout = () => {
   return (
-    <>
+    <Box display={{ base: "block", md: "block", lg: "none" }}>
       <NavBar />
       <Box
-        padding={2}
-        display={{ base: "block", md: "none" }}
-        bg="gray.50"
+        margin={0}
+        display={{ base: "block", md: "block", lg: "none" }}
         minHeight="100vh"
       >
-        <Container maxW="375px" textAlign="center">
+        <Box padding={0} alignContent={"center"} width={"100%"}>
           <Outlet />
-        </Container>
+        </Box>
       </Box>
       <BottomNav />
-    </>
+    </Box>
   );
 };
 
