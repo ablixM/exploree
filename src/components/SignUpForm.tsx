@@ -2,21 +2,20 @@ import {
   Box,
   Button,
   FormControl,
-  FormHelperText,
   Input,
   InputGroup,
+  InputLeftAddon,
   InputRightElement,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
 import { BiShow, BiHide } from "react-icons/bi";
 import { useState } from "react";
-import UserAgreementLink from "./UserAgreementLink.tsx";
+import { Link } from "react-router-dom";
 
 const SignUpForm = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-
   return (
     <>
       <Box paddingX={5} textAlign={"center"}>
@@ -29,7 +28,6 @@ const SignUpForm = () => {
               fontSize={"md"}
               paddingY={6}
             />
-            <FormHelperText></FormHelperText>
           </Box>
           <Box>
             <Input
@@ -39,17 +37,12 @@ const SignUpForm = () => {
               fontSize={"md"}
               paddingY={6}
             />
-            <FormHelperText></FormHelperText>
           </Box>
           <Box>
-            <Input
-              id="PhoneNumber"
-              type="number"
-              placeholder={"Phone number"}
-              fontSize={"md"}
-              paddingY={6}
-            />
-            <FormHelperText></FormHelperText>
+            <InputGroup>
+              <InputLeftAddon paddingY={6}>+251</InputLeftAddon>
+              <Input paddingY={6} type="tel" placeholder="phone number" />
+            </InputGroup>
           </Box>
           <InputGroup>
             <Input
@@ -90,14 +83,17 @@ const SignUpForm = () => {
           <Text fontSize={"xs"} paddingY={4}>
             By signing up you agree to the terms and policy.
           </Text>
-          <Button mt={4} bg="blue.400" type="submit" borderRadius={4}>
+          <Button
+            as={Link}
+            to={"/AdditionalInfo"}
+            mt={4}
+            bg="blue.400"
+            type="submit"
+            borderRadius={4}
+          >
             Sign Up
           </Button>
         </FormControl>
-      </Box>
-
-      <Box>
-        <UserAgreementLink />
       </Box>
     </>
   );
