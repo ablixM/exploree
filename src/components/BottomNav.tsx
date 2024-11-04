@@ -13,7 +13,6 @@ const BottomNav = () => {
       bottom="0"
       width="100%"
       color="white"
-      py={1}
       justify="space-around"
       boxShadow="0 -2px 10px rgba(0, 0, 0, 0.1)"
     >
