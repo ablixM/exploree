@@ -1,14 +1,23 @@
 import SignUpForm from "../components/SignUpForm.tsx";
-import SignUpHeading from "../components/SignUpHeading.tsx";
+import SignStatusHeading from "../components/SignStatusHeading.tsx";
 import ListBanner from "../components/ListBanner.tsx";
 import { Box } from "@chakra-ui/react";
+import UserAgreementLink from "../components/UserAgreementLink.tsx";
 
 const SignUpPage = () => {
   return (
     <Box>
       <ListBanner />
-      <SignUpHeading />
+      <SignStatusHeading
+        heading={"Let's sign you up!"}
+        text={"Already have an account?"}
+        BtnLabel={"Log in"}
+        BtnLink={"/Login"}
+      />
       <SignUpForm />
+      <Box>
+        <UserAgreementLink />
+      </Box>
     </Box>
   );
 };
