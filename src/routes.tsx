@@ -8,6 +8,7 @@ import SavedPage from "./pages/SavedPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
 import LogInPage from "./pages/LogInPage.tsx";
 import SignUpPage from "./pages/SignUpPage.tsx";
+import AdditionalInfosPage from "./pages/AdditionalInfosPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/SignUp",
         element: <SignUpPage />,
+      },
+      {
+        path: "/AdditionalInfo",
+        element: <AdditionalInfosPage />,
       },
     ],
   },
