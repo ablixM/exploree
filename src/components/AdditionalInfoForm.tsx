@@ -21,7 +21,7 @@ const AdditionalInfoForm = () => {
       </Text>
       <FormControl paddingY={1}>
         <FormLabel>Gender</FormLabel>
-        <Select fontSize={"sm"} size="lg" placeholder="Select gender">
+        <Select fontSize={"md"} size="lg" placeholder="Select gender">
           <option>Male</option>
           <option>Female</option>
           <option>tutu</option>
@@ -29,7 +29,7 @@ const AdditionalInfoForm = () => {
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>Martial status</FormLabel>
-        <Select fontSize={"sm"} size="lg" placeholder="Select status">
+        <Select fontSize={"md"} size="lg" placeholder="Select status">
           <option>Married</option>
           <option>Single</option>
         </Select>
@@ -37,22 +37,22 @@ const AdditionalInfoForm = () => {
       <FormControl paddingY={1}>
         <FormLabel>Birth Date</FormLabel>
         <Input
-          fontSize={"sm"}
+          fontSize={"md"}
           placeholder="Select Date and Time"
           size="lg"
-          type="datetime-local"
+          type="date"
         />
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>Country</FormLabel>
-        <Select fontSize={"sm"} size="lg" placeholder="Select country">
+        <Select fontSize={"md "} size="lg" placeholder="Select country">
           <option>United Arab Emirates</option>
           <option>Nigeria</option>
         </Select>
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>State</FormLabel>
-        <Select fontSize={"sm"} size="lg" placeholder="Select state">
+        <Select fontSize={"md"} size="lg" placeholder="Select state">
           <option>United Arab Emirates</option>
           <option>Nigeria</option>
         </Select>

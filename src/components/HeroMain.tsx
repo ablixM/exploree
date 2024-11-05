@@ -4,13 +4,13 @@ import svgs from "../data/heroMainSvg.ts";
 
 const HeroMain = () => {
   return (
-    <Box boxShadow="base" width={"100%"} padding={3}>
+    <Box boxShadow="base" width={"100%"} padding={3} alignContent={"center"}>
       <SimpleGrid
         columns={2}
         row={2}
         spacingY={2}
-        alignItems={"center"}
-        justifyContent={"center"}
+        maxWidth={"500px"}
+        margin={"0 auto"}
       >
         {svgs.src.map((result) => (
           <Flex key={result.id} justifyContent={"center"} alignItems={"center"}>
