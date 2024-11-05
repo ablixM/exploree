@@ -1,31 +1,42 @@
-import axios, { AxiosRequestConfig } from "axios";
+// api.ts
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-export interface FetchResponse<T> {
-  // count: number;
-  // next: string | null;
-  results: T[];
-}
-
-const axiosInstance = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
+// Create an Axios instance
+const api = axios.create({
+  baseURL: "api",
+  timeout: 10000,
 });
 
-export class APIClient<T> {
-  endpoint: string;
+export const getRequest = async <T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<T> => {
+  const response: AxiosResponse<T> = await api.get(url, config);
+  return response.data;
+};
 
-  constructor(endpoint: string) {
-    this.endpoint = endpoint;
-  }
+export const postRequest = async <T, R>(
+  url: string,
+  data: T,
+  config?: AxiosRequestConfig,
+): Promise<R> => {
+  const response: AxiosResponse<R> = await api.post(url, data, config);
+  return response.data;
+};
 
-  getAll = (config: AxiosRequestConfig) => {
-    return axiosInstance
-      .get<FetchResponse<T>>(this.endpoint, config)
-      .then((res) => res.data);
-  };
+export const putRequest = async <T, R>(
+  url: string,
+  data: T,
+  config?: AxiosRequestConfig,
+): Promise<R> => {
+  const response: AxiosResponse<R> = await api.put(url, data, config);
+  return response.data;
+};
 
-  get = (id: number | string) => {
-    return axiosInstance
-      .get<T>(this.endpoint + "/" + id)
-      .then((res) => res.data);
-  };
-}
+export const deleteRequest = async <T>(
+  url: string,
+  config?: AxiosRequestConfig,
+): Promise<T> => {
+  const response: AxiosResponse<T> = await api.delete(url, config);
+  return response.data;
+};
