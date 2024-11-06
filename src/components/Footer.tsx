@@ -13,7 +13,7 @@ export interface ContactProps {
 
 const Footer = () => {
   return (
-    <Box padding={4} bg={"blue.500"} marginTop={4}>
+    <Box padding={4} bg={"blue.500"} marginTop={16}>
       <Box bg={"blue.500"}>
         <Image width={"176px"} height={"44px"} src={logo} />
       </Box>
