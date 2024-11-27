@@ -1,6 +1,6 @@
 import { Box, Flex, List, ListIcon, ListItem } from "@chakra-ui/react";
 import { FaCircle } from "react-icons/fa";
-import listings from "../data/list.ts";
+import listings from "../data/lists.ts";
 
 const ListBanner = () => {
   return (

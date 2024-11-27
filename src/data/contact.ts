@@ -1,4 +1,4 @@
-import { ContactProps } from "../components/Footer.tsx";
+import { ContactProps } from "../components/footer/Footer.tsx";
 import { FaPhone } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";

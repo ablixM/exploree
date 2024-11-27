@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
-import BottomNavBtn from "./BottomNavBtn.tsx";
-import { navItems } from "../data/navItems.ts";
-import useNavStore from "../store/useNavStore.ts";
+import BottomNavBtn from "../BottomNavBtn.tsx";
+import { navItems } from "../../data/navItems.ts";
+import useNavStore from "../../store/useNavStore.ts";
 
 const BottomNav = () => {
   const { isLoggedIn, activeNav, setActiveNav } = useNavStore();

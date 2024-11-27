@@ -1,5 +1,5 @@
 import ListBanner from "../components/ListBanner.tsx";
-import LoginForm from "../components/LoginForm.tsx";
+import LoginForm from "../components/forms/LoginForm.tsx";
 import SignStatusHeading from "../components/SignStatusHeading.tsx";
 import UserAgreementLink from "../components/UserAgreementLink.tsx";
 import { Box } from "@chakra-ui/react";

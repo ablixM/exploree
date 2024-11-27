@@ -1,79 +1,37 @@
 import { create } from "zustand";
-import { Job } from "../entities/job.ts";
 
-// Define the filter state interface for jobs
-interface JobFilterState {
-  jobs: Job[];
-  filteredJobs: Job[];
-  searchText: string;
-  location: string;
-  employmentType: string;
-  minSalary: number | null;
-  maxSalary: number | null;
-  setJobs: (jobs: Job[]) => void;
-  setSearchText: (searchText: string) => void;
-  setLocation: (location: string) => void;
-  setEmploymentType: (employmentType: string) => void;
-  setMinSalary: (minSalary: number | null) => void;
-  setMaxSalary: (maxSalary: number | null) => void;
-  applyFilters: () => void;
+// Interface for job query state
+export interface JobQuery {
+  searchText?: string;
+  location?: string;
+  employmentType?: "Full-Time" | "Part-Time" | "Contract" | "Internship";
+  minSalary?: number;
+  maxSalary?: number;
 }
 
-// Create the Zustand store
-const useJobFilterStore = create<JobFilterState>((set, get) => ({
-  jobs: [],
-  filteredJobs: [],
-  searchText: "",
-  location: "",
-  employmentType: "",
-  minSalary: null,
-  maxSalary: null,
+interface JobQueryStore {
+  jobQuery: JobQuery;
+  setSearchText: (searchText: string) => void;
+  setLocation: (location: string) => void;
+  setEmploymentType: (
+    employmentType: "Full-Time" | "Part-Time" | "Contract" | "Internship",
+  ) => void;
+  setMinSalary: (minSalary: number) => void;
+  setMaxSalary: (maxSalary: number) => void;
+}
 
-  setJobs: (jobs) => set({ jobs, filteredJobs: jobs }),
-  setSearchText: (searchText) => set({ searchText }),
-  setLocation: (location) => set({ location }),
-  setEmploymentType: (employmentType) => set({ employmentType }),
-  setMinSalary: (minSalary) => set({ minSalary }),
-  setMaxSalary: (maxSalary) => set({ maxSalary }),
+const useJobQueryStore = create<JobQueryStore>((set) => ({
+  jobQuery: {},
 
-  applyFilters: () => {
-    const { jobs, searchText, location, employmentType, minSalary, maxSalary } =
-      get();
-
-    const filteredJobs = jobs.filter((job) => {
-      const matchesSearchText =
-        job.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        job.company.toLowerCase().includes(searchText.toLowerCase());
-      const matchesLocation = location
-        ? job.location.toLowerCase().includes(location.toLowerCase())
-        : true;
-      const matchesEmploymentType = employmentType
-        ? job.employmentType === employmentType
-        : true;
-      const matchesSalary =
-        (minSalary !== null
-          ? parseInt(
-              job.salaryRange.split("-")[0].replace(/[^0-9]/g, ""),
-              10,
-            ) >= minSalary
-          : true) &&
-        (maxSalary !== null
-          ? parseInt(
-              job.salaryRange.split("-")[1].replace(/[^0-9]/g, ""),
-              10,
-            ) <= maxSalary
-          : true);
-
-      return (
-        matchesSearchText &&
-        matchesLocation &&
-        matchesEmploymentType &&
-        matchesSalary
-      );
-    });
-
-    set({ filteredJobs });
-  },
+  setSearchText: (searchText) => set(() => ({ jobQuery: { searchText } })),
+  setLocation: (location) =>
+    set((store) => ({ jobQuery: { ...store.jobQuery, location } })),
+  setEmploymentType: (employmentType) =>
+    set((store) => ({ jobQuery: { ...store.jobQuery, employmentType } })),
+  setMinSalary: (minSalary) =>
+    set((store) => ({ jobQuery: { ...store.jobQuery, minSalary } })),
+  setMaxSalary: (maxSalary) =>
+    set((store) => ({ jobQuery: { ...store.jobQuery, maxSalary } })),
 }));
 
-export default useJobFilterStore;
+export default useJobQueryStore;

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { BiHide, BiShow } from "react-icons/bi";
 import { useState } from "react";
-import { login } from "../services/authService.ts";
+import { loginClient } from "../../services/authService.ts";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -38,12 +38,14 @@ export const LoginForm = () => {
   });
 
   const onSubmit = async (data: FieldValues) => {
-    const response = await login({
-      email: data.email,
-      password: data.password,
-    });
-    localStorage.setItem("token", response.token);
-    console.log(data);
+    loginClient
+      .post({ email: data.email, password: data.password })
+      .then((response) => {
+        console.log("Login successful:", response);
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
   };
 
   return (

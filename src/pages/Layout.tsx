@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
-import NavBar from "../components/NavBar.tsx";
-import BottomNav from "../components/BottomNav.tsx";
-import Footer from "../components/Footer.tsx";
+import NavBar from "../components/Navs/NavBar.tsx";
+import BottomNav from "../components/Navs/BottomNav.tsx";
+import Footer from "../components/footer/Footer.tsx";
 
 const Layout = () => {
   return (

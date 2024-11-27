@@ -1,8 +1,8 @@
 import { Box, Flex, Image, SimpleGrid } from "@chakra-ui/react";
-import logo from "../assets/logo.webp";
+import logo from "../../assets/logo.webp";
 import { IconType } from "react-icons";
-import { contact } from "../data/contact.ts";
-import UserAgreementLink from "./UserAgreementLink.tsx";
+import { contact } from "../../data/contact.ts";
+import UserAgreementLink from "../UserAgreementLink.tsx";
 
 export interface ContactProps {
   label: string;

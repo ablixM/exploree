@@ -1,4 +1,4 @@
-import SignUpForm from "../components/SignUpForm.tsx";
+import SignUpForm from "../components/forms/SignUpForm.tsx";
 import SignStatusHeading from "../components/SignStatusHeading.tsx";
 import ListBanner from "../components/ListBanner.tsx";
 import { Box } from "@chakra-ui/react";

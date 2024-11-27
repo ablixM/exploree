@@ -4,7 +4,7 @@ import svgs from "../data/heroMainSvg.ts";
 
 const HeroMain = () => {
   return (
-    <Box boxShadow="base" width={"100%"} padding={3} alignContent={"center"}>
+    <Box boxShadow="sm" width={"100%"} padding={3} alignContent={"center"}>
       <SimpleGrid
         columns={2}
         row={2}

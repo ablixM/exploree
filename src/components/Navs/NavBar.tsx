@@ -1,7 +1,9 @@
-import { Avatar, Box, Image } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.webp";
-import useNavStore from "../store/useNavStore.ts";
+import logo from "../../assets/logo.webp";
+import useNavStore from "../../store/useNavStore.ts";
+import { CgMenuRightAlt } from "react-icons/cg";
+import StatusDrawer from "../StatusDrawer.tsx";
 
 const NavBar = () => {
   const { isLoggedIn } = useNavStore();
@@ -21,11 +23,22 @@ const NavBar = () => {
         </Link>
       </Box>
 
-      {isLoggedIn ? (
-        <Box paddingX={5} paddingY={3.5} color="white">
-          <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+      <Flex>
+        <Box>
+          <StatusDrawer />
         </Box>
-      ) : null}
+        <Box paddingX={4}>
+          <Button variant="outline" borderRadius={0} border={"none"}>
+            <CgMenuRightAlt size={30} />
+          </Button>
+        </Box>
+
+        {isLoggedIn ? (
+          <Box paddingX={5} paddingY={3.5} color="white">
+            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+          </Box>
+        ) : null}
+      </Flex>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import ListBanner from "../components/ListBanner.tsx";
-import AdditionalInfoForm from "../components/AdditionalInfoForm.tsx";
+import AdditionalInfoForm from "../components/forms/AdditionalInfoForm.tsx";
 
 const AdditionalInfosPage = () => {
   return (

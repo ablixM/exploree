@@ -94,7 +94,7 @@ const theme = extendTheme({
   sizes: {
     max: "max-content",
     min: "min-content",
-    full: "100%",
+    full: "100  %",
     "3xs": "14rem",
     "2xs": "16rem",
     xs: "20rem",
