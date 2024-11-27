@@ -12,6 +12,31 @@ import {
 import { BiShow, BiHide } from "react-icons/bi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FieldValues, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  fullName: z
+    .string()
+    .min(2, "Full name must be at least 2 characters")
+    .regex(/^[a-zA-Z\s]+$/, "Full name can only contain letters and spaces")
+    .nonempty("Full name is required"),
+  email: z.string().email("Please enter a valid email address"),
+  phoneNumber: z
+    .string()
+    .regex(
+      /^\+?[0-9]{10,15}$/,
+      "Phone number must be between 10 and 15 digits, and can start with +",
+    ),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number"),
+});
+
+type FormData = z.infer<typeof schema>;
 
 const SignUpForm = () => {
   const [show, setShow] = useState(false);
