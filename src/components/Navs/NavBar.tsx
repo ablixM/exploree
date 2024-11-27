@@ -4,6 +4,7 @@ import logo from "../../assets/logo.webp";
 import useNavStore from "../../store/useNavStore.ts";
 import { CgMenuRightAlt } from "react-icons/cg";
 import StatusDrawer from "../StatusDrawer.tsx";
+import MenuDrawer from "../MenuDrawer.tsx";
 
 const NavBar = () => {
   const { isLoggedIn } = useNavStore();
@@ -28,9 +29,7 @@ const NavBar = () => {
           <StatusDrawer />
         </Box>
         <Box paddingX={4}>
-          <Button variant="outline" borderRadius={0} border={"none"}>
-            <CgMenuRightAlt size={30} />
-          </Button>
+          <MenuDrawer />
         </Box>
 
         {isLoggedIn ? (

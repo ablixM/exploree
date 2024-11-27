@@ -7,7 +7,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -15,18 +14,22 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const StatusDrawer = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isStatusOpen,
+    onOpen: onStatusOpen,
+    onClose: onStatusClose,
+  } = useDisclosure();
   const btnRef = useRef();
 
   return (
     <>
-      <Button ref={btnRef} bg={"blue.500"} onClick={onOpen}>
+      <Button ref={btnRef} bg={"blue.500"} onClick={onStatusOpen}>
         Sign In
       </Button>
       <Drawer
-        isOpen={isOpen}
+        isOpen={isStatusOpen}
         placement="bottom"
-        onClose={onClose}
+        onClose={onStatusClose}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
@@ -44,7 +47,7 @@ const StatusDrawer = () => {
               borderRadius={4}
               as={Link}
               to={"/Login"}
-              onClick={() => onClose()}
+              onClick={() => onStatusClose()}
             >
               Log In
             </Button>
@@ -59,7 +62,7 @@ const StatusDrawer = () => {
               width={"100%"}
               variant="outline"
               borderColor={"blue.500"}
-              onClick={() => onClose()}
+              onClick={() => onStatusClose()}
             >
               Sign Up
             </Button>

@@ -8,7 +8,7 @@ const apiClient = new APIClient<list>("/lists");
 const useListings = () => {
   return useQuery({
     queryKey: ["lists"],
-    queryFn: apiClient.getAll,
+    queryFn: () => apiClient.getAll,
     staleTime: ms("24h"),
     initialData: listings,
   });
