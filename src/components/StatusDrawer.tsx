@@ -19,7 +19,7 @@ const StatusDrawer = () => {
     onOpen: onStatusOpen,
     onClose: onStatusClose,
   } = useDisclosure();
-  const btnRef = useRef();
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>

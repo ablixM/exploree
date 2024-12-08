@@ -22,7 +22,7 @@ const AdditionalInfoForm = () => {
       <FormControl paddingY={1}>
         <FormLabel>Gender</FormLabel>
         <Select
-          aria-label="Select gender"
+          title="Select gender"
           fontSize={"md"}
           size="lg"
           placeholder="Select gender"
@@ -35,7 +35,7 @@ const AdditionalInfoForm = () => {
       <FormControl paddingY={1}>
         <FormLabel>Martial status</FormLabel>
         <Select
-          aria-label="Select martial status"
+          title="Select martial status"
           fontSize={"md"}
           size="lg"
           placeholder="Select status"
@@ -56,7 +56,7 @@ const AdditionalInfoForm = () => {
       <FormControl paddingY={1}>
         <FormLabel>Country</FormLabel>
         <Select
-          aria-label="Select country"
+          title="Select country"
           fontSize={"md "}
           size="lg"
           placeholder="Select country"
@@ -68,7 +68,7 @@ const AdditionalInfoForm = () => {
       <FormControl paddingY={1}>
         <FormLabel>State</FormLabel>
         <Select
-          aria-label="Select state"
+          title="Select state"
           fontSize={"md"}
           size="lg"
           placeholder="Select state"

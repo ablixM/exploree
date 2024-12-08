@@ -15,7 +15,7 @@ const useJobs = () => {
   const jobQuery = useListQueryStore((s) => s.jobQuery);
 
   return useQuery<JobResponse, Error>({
-    queryKey: ["jobs", jobQuery] as const,
+    queryKey: ["jobs", jobQuery],
     queryFn: () =>
       apiClient.getAll({
         params: {
