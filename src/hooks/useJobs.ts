@@ -1,20 +1,16 @@
 import ms from "ms";
 import useListQueryStore from "../store/useJobQueryStore.ts";
-import { APIClient } from "../services/api-client.ts";
-import { Job } from "../entities/job";
+import { APIClient, FetchResponse } from "../services/api-client.ts";
+import { Job } from "../entities/job.ts";
 import { useQuery } from "@tanstack/react-query";
-import { jobs } from "../data/jobs.ts";
+import jobs from "../data/jobs.ts";
 
-interface JobResponse {
-  results: Job[];
-}
+const apiClient = new APIClient<Job>("/jobs");
 
-const apiClient = new APIClient<JobResponse>("/jobs");
-
-const useJobs = () => {
+const useListing = () => {
   const jobQuery = useListQueryStore((s) => s.jobQuery);
 
-  return useQuery<JobResponse, Error>({
+  return useQuery<FetchResponse<Job>, Error>({
     queryKey: ["jobs", jobQuery],
     queryFn: () =>
       apiClient.getAll({
@@ -27,8 +23,8 @@ const useJobs = () => {
         },
       }),
     staleTime: ms("24h"),
-    initialData: { results: jobs },
+    initialData: jobs as FetchResponse<Job>,
   });
 };
 
-export default useJobs;
+export default useListing;
