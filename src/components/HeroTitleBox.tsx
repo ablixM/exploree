@@ -22,7 +22,7 @@ export const HeroTitleBox = () => {
                 query={["jobs", "Opportunities", "Events", "Tenders"]}
                 styles={{ px: "2", py: "1", rounded: "full", bg: "blue.100" }}
               >
-                Explore a World of Opportunities: Your One-Stop Hub for Jobs,
+                Explore a World of Opportunities Your One-Stop Hub for Jobs,
                 Events, and Tenders
               </Highlight>
             </Text>

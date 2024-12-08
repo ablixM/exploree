@@ -21,7 +21,12 @@ const AdditionalInfoForm = () => {
       </Text>
       <FormControl paddingY={1}>
         <FormLabel>Gender</FormLabel>
-        <Select fontSize={"md"} size="lg" placeholder="Select gender">
+        <Select
+          aria-label="Select gender"
+          fontSize={"md"}
+          size="lg"
+          placeholder="Select gender"
+        >
           <option>Male</option>
           <option>Female</option>
           <option>tutu</option>
@@ -29,7 +34,12 @@ const AdditionalInfoForm = () => {
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>Martial status</FormLabel>
-        <Select fontSize={"md"} size="lg" placeholder="Select status">
+        <Select
+          aria-label="Select martial status"
+          fontSize={"md"}
+          size="lg"
+          placeholder="Select status"
+        >
           <option>Married</option>
           <option>Single</option>
         </Select>
@@ -45,14 +55,24 @@ const AdditionalInfoForm = () => {
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>Country</FormLabel>
-        <Select fontSize={"md "} size="lg" placeholder="Select country">
+        <Select
+          aria-label="Select country"
+          fontSize={"md "}
+          size="lg"
+          placeholder="Select country"
+        >
           <option>United Arab Emirates</option>
           <option>Nigeria</option>
         </Select>
       </FormControl>
       <FormControl paddingY={1}>
         <FormLabel>State</FormLabel>
-        <Select fontSize={"md"} size="lg" placeholder="Select state">
+        <Select
+          aria-label="Select state"
+          fontSize={"md"}
+          size="lg"
+          placeholder="Select state"
+        >
           <option>United Arab Emirates</option>
           <option>Nigeria</option>
         </Select>

@@ -1,8 +1,7 @@
-import { Avatar, Box, Button, Flex, Image } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 import useNavStore from "../../store/useNavStore.ts";
-import { CgMenuRightAlt } from "react-icons/cg";
 import StatusDrawer from "../StatusDrawer.tsx";
 import MenuDrawer from "../MenuDrawer.tsx";
 

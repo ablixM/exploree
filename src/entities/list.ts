@@ -1,4 +1,10 @@
-export default interface List {
-  id: "jobs" | "opportunities" | "events" | "tenders";
+export interface List {
+  id: number;
   name: string;
 }
+
+export interface ListResponse {
+  results: List[];
+}
+
+export default ListResponse;

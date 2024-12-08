@@ -7,7 +7,6 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  Input,
   DrawerFooter,
 } from "@chakra-ui/react";
 import { useRef } from "react";
@@ -19,7 +18,7 @@ const MenuDrawer = () => {
     onOpen: onMenuOpen,
     onClose: onMenuClose,
   } = useDisclosure();
-  const menuBtnRef = useRef();
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
@@ -40,18 +39,11 @@ const MenuDrawer = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader></DrawerHeader>
 
-          <DrawerBody>
-            <Input placeholder="Type here..." />
-          </DrawerBody>
+          <DrawerBody></DrawerBody>
 
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onMenuClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
+          <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

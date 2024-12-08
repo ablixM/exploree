@@ -1,6 +1,4 @@
 import {
-  Box,
-  Flex,
   SimpleGrid,
   Spinner,
   Tab,
@@ -10,18 +8,21 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import useListings from "../hooks/useListings.ts";
+import useListings from "../hooks/useListings";
 import { JobCard } from "./JobCard.tsx";
 import useJobs from "../hooks/useJobs.ts";
-import CardSkeleton from "./CardSkeleton.tsx";
 import ListCardContainer from "./ListCardContainer.tsx";
+import { List } from "../entities/list";
+import { Job } from "../entities/job";
+import CardSkeleton from "./CardSkeleton.tsx";
 
 const ListGrid = () => {
-  const { data, isLoading: listIsLoading, error } = useListings();
+  const { data: lists, isLoading: listIsLoading, error } = useListings();
   const { data: jobs, isLoading: jobIsLoading } = useJobs();
   const skeletons = [1, 2, 3, 4, 5, 6];
+
   if (error) return null;
-  if (!data) return null;
+  if (!lists) return null;
   return (
     <SimpleGrid width={"100%"} marginY={5} padding={4}>
       {listIsLoading ? (
@@ -29,7 +30,7 @@ const ListGrid = () => {
       ) : (
         <Tabs isFitted variant="enclosed" size={"lg"} position={"sticky"}>
           <TabList width={"100%"}>
-            {data?.results.map((list) => (
+            {lists?.results.map((list: List) => (
               <Tab key={list.id} fontSize={"md"}>
                 {list.name}
               </Tab>
@@ -43,20 +44,17 @@ const ListGrid = () => {
           />
           <TabPanels>
             <TabPanel as={SimpleGrid} columns={{ sm: 1, md: 2 }} spacing={6}>
-              {
-                // jobs?.results.map((job) => (
-                //   <ListCardContainer key={job.id}>
-                //     <JobCard job={job} />
-                //   </ListCardContainer>
-                //
-                // ))
-
-                skeletons.map((skeleton) => (
-                  <ListCardContainer key={skeleton}>
-                    <CardSkeleton />
-                  </ListCardContainer>
-                ))
-              }
+              {jobIsLoading
+                ? skeletons.map((skeleton) => (
+                    <ListCardContainer key={skeleton}>
+                      <CardSkeleton />
+                    </ListCardContainer>
+                  ))
+                : jobs?.results.map((job: Job) => (
+                    <ListCardContainer key={job.id}>
+                      <JobCard job={job} />
+                    </ListCardContainer>
+                  ))}
             </TabPanel>
             <TabPanel>
               <p>two!</p>

@@ -33,5 +33,6 @@ export const jobs: Job[] = [
     postedDate: new Date("2024-11-02"),
     applicationDeadline: new Date("2024-12-15"),
     contactEmail: "recruitment@datacorp.com",
+    salaryRange: "$70,000 - $90,000",
   },
 ];
